@@ -4,7 +4,7 @@ const myData = () => {
 	const API_KEY = '3796807274d6fb0086c149dac022a368';
 	// const country = 'dhaka';
 
-	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Search_input}&appid=${API_KEY}`)
+	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Search_input}&appid=${API_KEY}&units=metric`)
 		.then(response => response.json())
 		.then(data => {
 			if (data.main === undefined || data === undefined) {
@@ -30,6 +30,5 @@ const ShowData = data => {
 	document.getElementById('dataOne').innerText = data.name;
 	document.getElementById('dataTwo').innerText = data.main.temp;
 	document.getElementById('dataThree').innerText = data.weather[0].description;
-
 	console.log(data);
 };
